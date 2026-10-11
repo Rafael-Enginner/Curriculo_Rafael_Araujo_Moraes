@@ -57,4 +57,10 @@
   });});
   document.getElementById('clear').addEventListener('click',function(){setSeg('geral');apply([]);});
 
+
+  var MAP={administrativo:'adm',financeiro:'fin',processos:'proc'}, REV={adm:'administrativo',fin:'financeiro',proc:'processos'};
+  seg.forEach(function(b){b.addEventListener('click',function(){
+    try{var u=new URL(location.href); if(REV[b.dataset.p]) u.searchParams.set('perfil',REV[b.dataset.p]); else u.searchParams.delete('perfil'); history.replaceState(null,'',u);}catch(e){}
+  });});
+  try{var q=MAP[new URLSearchParams(location.search).get('perfil')]; if(q){var btn=seg.filter(function(b){return b.dataset.p===q;})[0]; if(btn) btn.click();}}catch(e){}
 })();

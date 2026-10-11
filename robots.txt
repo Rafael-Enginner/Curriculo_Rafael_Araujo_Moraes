@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafael-enginner.github.io/Curriculo_Rafael_Araujo_Moraes/sitemap.xml
